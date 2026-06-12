@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node server/index.js",
     "start": "NODE_ENV=production node server/index.js",
-    "check": "node --check server/index.js && node --check server/vendor.js && node --check public/main.js && bash -n start.sh start.command",
+    "check": "node --check server/index.js && node --check server/vendor.js && node --check public/main.js && node --check public/settings.js && node --check public/debug.js && bash -n start.sh start.command",
     "postinstall": "node server/vendor.js"
   },
   "dependencies": {

@@ -21,15 +21,16 @@ if (-not $env:PORT) { $env:PORT = "3000" }
 if (-not $env:TERMINAL_CWD) { $env:TERMINAL_CWD = $RootDir }
 
 $AppUrl = "http://$($env:HOST):$($env:PORT)"
+$LoginUrl = "$AppUrl/login"
 
 if ($env:NO_OPEN -ne "1") {
   Start-Job -ScriptBlock {
     param($Url)
     Start-Sleep -Seconds 2
     Start-Process $Url
-  } -ArgumentList $AppUrl | Out-Null
+  } -ArgumentList $LoginUrl | Out-Null
 }
 
-Write-Host "Starting Nova Terminal at $AppUrl"
+Write-Host "Starting Nova Terminal at $LoginUrl"
 Write-Host "Terminal sessions will open in: $env:TERMINAL_CWD"
 npm run dev

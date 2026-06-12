@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings · Nova Terminal</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="center-page wide">
+      <section class="auth-card settings-card">
+        <nav class="app-nav"><a href="/">Terminal</a><a href="/debug">Debug</a><a href="/whats-new">What's new</a></nav>
+        <div class="eyebrow">Easy settings</div>
+        <h1>Settings</h1>
+        <p>Keep settings simple to avoid bugs. Server settings come from environment variables; UI preferences stay in this browser.</p>
+        <div class="settings-grid">
+          <label class="toggle-row"><input type="checkbox" id="compactMode"> Compact UI</label>
+          <label class="toggle-row"><input type="checkbox" id="debugMode"> Show debug logs in the browser console</label>
+        </div>
+        <h2>Server runtime</h2>
+        <pre class="debug-output" id="settingsOutput">Loading…</pre>
+      </section>
+    </main>
+    <script src="/settings.js"></script>
+  </body>
+</html>

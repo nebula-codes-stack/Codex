@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080b15">
+    <title>Login · Nova Terminal</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="center-page">
+      <section class="auth-card">
+        <div class="eyebrow">Protected shell</div>
+        <h1>Login</h1>
+        <p>Enter the Nova Terminal password. It is stored on disk as a salted scrypt hash in <code>.nova/auth.json</code>.</p>
+        <form class="stack-form" method="post" action="/login" id="loginForm">
+          <input type="hidden" name="next" id="nextInput" value="/">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required autofocus>
+          <p class="form-error" id="loginError" hidden>That password did not work. Try again.</p>
+          <button type="submit">Unlock terminal</button>
+        </form>
+        <a class="subtle-link" href="/whats-new">See what's new</a>
+      </section>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      document.querySelector('#nextInput').value = params.get('next') || '/';
+      document.querySelector('#loginError').hidden = !params.has('error');
+    </script>
+  </body>
+</html>

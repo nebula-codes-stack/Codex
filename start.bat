@@ -24,9 +24,10 @@ if not defined HOST set HOST=127.0.0.1
 if not defined PORT set PORT=3000
 if not defined TERMINAL_CWD set TERMINAL_CWD=%CD%
 set APP_URL=http://%HOST%:%PORT%
+set LOGIN_URL=%APP_URL%/login
 
-if not "%NO_OPEN%"=="1" start "" "%APP_URL%"
+if not "%NO_OPEN%"=="1" start "" "%LOGIN_URL%"
 
-echo Starting Nova Terminal at %APP_URL%
+echo Starting Nova Terminal at %LOGIN_URL%
 echo Terminal sessions will open in: %TERMINAL_CWD%
 call npm run dev

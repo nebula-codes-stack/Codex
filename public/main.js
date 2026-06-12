@@ -4,6 +4,8 @@ const statusPulse = document.querySelector('#statusPulse');
 const clearButton = document.querySelector('#clearButton');
 const reconnectButton = document.querySelector('#reconnectButton');
 const sessionId = document.querySelector('#sessionId');
+const cwdLabel = document.querySelector('#cwdLabel');
+const debugEnabled = localStorage.getItem('nova.debug') === 'true';
 
 const terminal = new Terminal({
   allowProposedApi: true,
@@ -54,8 +56,19 @@ function setStatus(label, state) {
 }
 
 function terminalUrl() {
+  fitAddon.fit();
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  return `${protocol}//${window.location.host}/terminal`;
+  const params = new URLSearchParams({
+    cols: String(terminal.cols),
+    rows: String(terminal.rows),
+  });
+  return `${protocol}//${window.location.host}/terminal?${params}`;
+}
+
+function debugLog(...args) {
+  if (debugEnabled) {
+    console.debug('[nova-terminal]', ...args);
+  }
 }
 
 function createSessionId() {
@@ -94,6 +107,23 @@ function parseServerMessage(event) {
   }
 }
 
+async function loadSettings() {
+  try {
+    const response = await fetch('/api/settings');
+    if (response.redirected) {
+      window.location.href = response.url;
+      return;
+    }
+
+    const settings = await response.json();
+    cwdLabel.textContent = settings.terminalCwd;
+    debugLog('settings', settings);
+  } catch (error) {
+    cwdLabel.textContent = 'unavailable';
+    debugLog('settings failed', error);
+  }
+}
+
 function connect() {
   connectionAttempt += 1;
   const attempt = connectionAttempt;
@@ -107,6 +137,7 @@ function connect() {
   terminal.writeln('\x1b[38;2;98;230;255m✦ Opening Nova Terminal session…\x1b[0m');
 
   const nextSocket = new WebSocket(terminalUrl());
+  debugLog('connecting', nextSocket.url);
   socket = nextSocket;
 
   nextSocket.addEventListener('open', () => {
@@ -116,6 +147,7 @@ function connect() {
     }
 
     setStatus('Connected', 'connected');
+    debugLog('connected');
     fitAndResize();
     terminal.focus();
   });
@@ -129,6 +161,7 @@ function connect() {
 
     if (message.type === 'output') {
       terminal.write(message.data);
+      terminal.scrollToBottom();
       return;
     }
 
@@ -145,12 +178,14 @@ function connect() {
   nextSocket.addEventListener('close', () => {
     if (attempt === connectionAttempt) {
       setStatus('Disconnected', 'disconnected');
+      debugLog('disconnected');
     }
   });
 
   nextSocket.addEventListener('error', () => {
     if (attempt === connectionAttempt) {
       setStatus('Connection error', 'disconnected');
+      debugLog('connection error');
     }
   });
 }
@@ -165,5 +200,6 @@ clearButton.addEventListener('click', () => terminal.clear());
 reconnectButton.addEventListener('click', connect);
 window.addEventListener('resize', fitAndResize);
 
-connect();
+loadSettings();
 fitAndResize();
+connect();

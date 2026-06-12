@@ -259,3 +259,154 @@ button:hover {
     min-height: 34rem;
   }
 }
+
+.app-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: auto;
+}
+
+.app-nav a,
+.app-nav button,
+.button-link,
+.subtle-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.app-nav form {
+  margin: 0;
+}
+
+.button-link:hover,
+.subtle-link:hover,
+.app-nav a:hover,
+.app-nav button:hover {
+  border-color: rgba(98, 230, 255, 0.52);
+  background: rgba(98, 230, 255, 0.12);
+}
+
+.center-page {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1rem;
+}
+
+.center-page.wide {
+  align-items: start;
+  padding-top: clamp(1rem, 6vh, 4rem);
+}
+
+.auth-card {
+  width: min(34rem, 100%);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--panel-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(28px);
+}
+
+.settings-card {
+  width: min(58rem, 100%);
+}
+
+.auth-card h1 {
+  margin-top: 1.5rem;
+}
+
+.auth-card code {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.35rem;
+  padding: 0.12rem 0.32rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--cyan);
+}
+
+.stack-form {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.stack-form label,
+.settings-grid label {
+  color: #dfe7ff;
+  font-weight: 700;
+}
+
+.stack-form input[type="password"] {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+  font: inherit;
+}
+
+.form-error {
+  color: #fda4af;
+}
+
+.settings-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.debug-output {
+  overflow: auto;
+  max-height: 28rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #080b15;
+  color: #dbeafe;
+  font: 0.9rem/1.55 "SFMono-Regular", "Cascadia Code", Menlo, monospace;
+}
+
+.release-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+body.compact .auth-card,
+body.compact .terminal-surface {
+  padding: 0.75rem;
+}
+
+.terminal-meta strong#cwdLabel {
+  overflow: hidden;
+  max-width: 18rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

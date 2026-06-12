@@ -13,10 +13,12 @@ Nova Terminal is a beautiful browser-based shell for local development. The UI i
 - Resize support through the xterm fit addon.
 - Clear and reconnect controls in the toolbar.
 - Starter scripts for Linux, macOS, Windows Command Prompt, and Windows PowerShell.
+- Password login at `/login` with a salted scrypt hash stored in `.nova/auth.json`.
+- Simple pages for `/settings`, `/debug`, `/whats-new`, and `/something`.
 
 ## Quick start
 
-Pick the launcher for your operating system. Each launcher installs dependencies if `node_modules/` is missing, starts the Node.js server, opens the app in your browser, and sets terminal sessions to start in this project directory.
+Pick the launcher for your operating system. Each launcher installs dependencies if `node_modules/` is missing, starts the Node.js server, opens the app in your browser, and sets terminal sessions to start in this project directory instead of `~`.
 
 | OS / shell | Launcher |
 | --- | --- |
@@ -33,11 +35,22 @@ npm install
 npm run dev
 ```
 
-Then open [http://127.0.0.1:3000](http://127.0.0.1:3000).
+Then open [http://127.0.0.1:3000/login](http://127.0.0.1:3000/login).
+
+
+## Login and password hash
+
+On first launch, Nova creates `.nova/auth.json` with a salted scrypt hash. Set your initial password before first launch:
+
+```bash
+NOVA_PASSWORD="change-me" ./start.sh
+```
+
+If you do not set `NOVA_PASSWORD`, the first-run password is `nova`. To reset it during local development, stop the server, delete `.nova/auth.json`, set `NOVA_PASSWORD`, and start Nova again.
 
 ## Configuration
 
-You can change the bind address, port, terminal shell, or terminal working directory with environment variables:
+You can change the bind address, port, terminal shell, or terminal working directory with environment variables. If `TERMINAL_CWD` is not set, the backend uses the project/server directory:
 
 ```bash
 HOST=127.0.0.1 PORT=4000 TERMINAL_SHELL=/bin/zsh TERMINAL_CWD="$PWD" ./start.sh
@@ -51,7 +64,11 @@ $env:TERMINAL_SHELL = "powershell.exe"
 ./start.ps1
 ```
 
-Set `NO_OPEN=1` if you do not want the starter to open your browser automatically.
+Set `NO_OPEN=1` if you do not want the starter to open your browser automatically. Runtime details are visible at `/settings` and `/debug` after login.
+
+## About the command line position
+
+Nova keeps a real PTY connected to xterm.js, so the command prompt is controlled by the shell and terminal emulator. A separate fixed input box at the bottom would break interactive programs such as editors, prompts, pagers, and full-screen CLIs. The app now sends the browser terminal size before spawning the PTY and auto-scrolls to the bottom on output, which is the safest way to keep input visible without breaking real terminal behavior.
 
 ## Security warning
 

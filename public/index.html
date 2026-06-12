@@ -11,6 +11,12 @@
   <body>
     <main class="shell-page" aria-label="Nova Terminal web application">
       <section class="hero-panel">
+        <nav class="app-nav" aria-label="Application pages">
+          <a href="/settings">Settings</a>
+          <a href="/debug">Debug</a>
+          <a href="/whats-new">What's new</a>
+          <form method="post" action="/logout"><button type="submit">Logout</button></form>
+        </nav>
         <div class="eyebrow">Node.js PTY backend</div>
         <h1>Nova Terminal</h1>
         <p>
@@ -37,6 +43,7 @@
           <div class="toolbar-actions">
             <button type="button" id="clearButton">Clear</button>
             <button type="button" id="reconnectButton">Reconnect</button>
+            <a class="button-link" href="/settings">Settings</a>
           </div>
         </header>
         <div class="terminal-meta">
@@ -44,6 +51,8 @@
           <strong id="sessionId">booting</strong>
           <span>Transport</span>
           <strong>WebSocket</strong>
+          <span>CWD</span>
+          <strong id="cwdLabel">loading</strong>
         </div>
         <div id="terminal" class="terminal-surface" role="application" aria-label="Terminal surface"></div>
       </section>
