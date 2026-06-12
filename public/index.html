@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080b15">
+    <title>Nova Terminal</title>
+    <link rel="stylesheet" href="/vendor/xterm.css">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell-page" aria-label="Nova Terminal web application">
+      <section class="hero-panel">
+        <nav class="app-nav" aria-label="Application pages">
+          <a href="/settings">Settings</a>
+          <a href="/debug">Debug</a>
+          <a href="/whats-new">What's new</a>
+          <form method="post" action="/logout"><input type="hidden" name="_csrf" data-csrf><button type="submit">Logout</button></form>
+        </nav>
+        <div class="eyebrow">Node.js PTY backend</div>
+        <h1>Nova Terminal</h1>
+        <p>
+          Detachable browser shells with stored output, quick commands,
+          session attach, command palette, and real xterm.js behavior.
+        </p>
+        <div class="status-card" aria-live="polite">
+          <span class="pulse" id="statusPulse"></span>
+          <span id="connectionStatus">Connecting…</span>
+        </div>
+      </section>
+
+      <aside class="sessions-panel" aria-label="Terminal sessions">
+        <div class="panel-heading">
+          <span>Sessions</span>
+          <button type="button" id="newSessionButton">New</button>
+        </div>
+        <div id="sessionList" class="session-list"></div>
+      </aside>
+
+      <section class="terminal-card" aria-label="Interactive terminal">
+        <header class="terminal-toolbar">
+          <div class="window-controls" aria-hidden="true">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+          </div>
+          <div class="terminal-title">
+            <span class="spark">✦</span>
+            <span id="activeSessionName">local shell</span>
+          </div>
+          <div class="toolbar-actions">
+            <button type="button" id="paletteButton">Palette</button>
+            <button type="button" id="copyOutputButton">Copy</button>
+            <button type="button" id="downloadLogButton">Download</button>
+            <button type="button" id="clearHistoryButton">Clear history</button>
+            <button type="button" id="clearButton">Clear screen</button>
+            <button type="button" id="reconnectButton">Reconnect</button>
+          </div>
+        </header>
+        <div class="terminal-meta">
+          <span>Session</span>
+          <strong id="sessionId">booting</strong>
+          <span>Transport</span>
+          <strong>WebSocket</strong>
+          <span>CWD</span>
+          <strong id="cwdLabel">loading</strong>
+        </div>
+        <div class="quick-command-shell" aria-label="Quick commands">
+          <div class="quick-command-heading">
+            <span>Quick commands</span>
+            <strong id="quickCommandProfile">detecting…</strong>
+          </div>
+          <div class="quick-command-bar" id="quickCommandBar"></div>
+        </div>
+        <div id="terminal" class="terminal-surface" role="application" aria-label="Terminal surface"></div>
+      </section>
+
+      <dialog class="command-palette" id="commandPalette">
+        <form method="dialog" class="palette-card">
+          <div class="palette-header">
+            <strong>Command palette</strong>
+            <button type="submit" aria-label="Close command palette">×</button>
+          </div>
+          <input id="paletteSearch" type="search" placeholder="Search quick commands and actions…" autocomplete="off">
+          <div id="paletteResults" class="palette-results"></div>
+        </form>
+      </dialog>
+    </main>
+
+    <script src="/vendor/xterm.js"></script>
+    <script src="/vendor/addon-fit.js"></script>
+    <script src="/page.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
