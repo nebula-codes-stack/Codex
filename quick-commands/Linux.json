@@ -1,0 +1,7 @@
+[
+  { "label": "List files", "command": "ls -la" },
+  { "label": "System info", "command": "uname -a" },
+  { "label": "Disk usage", "command": "df -h" },
+  { "label": "Processes", "command": "ps aux | head" },
+  { "label": "Node version", "command": "node --version && npm --version" }
+]

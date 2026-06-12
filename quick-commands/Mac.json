@@ -1,0 +1,7 @@
+[
+  { "label": "List files", "command": "ls -la" },
+  { "label": "macOS version", "command": "sw_vers" },
+  { "label": "Disk usage", "command": "df -h" },
+  { "label": "Homebrew", "command": "brew --version" },
+  { "label": "Node version", "command": "node --version && npm --version" }
+]

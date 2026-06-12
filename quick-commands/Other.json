@@ -1,0 +1,6 @@
+[
+  { "label": "List", "command": "ls" },
+  { "label": "Where am I?", "command": "pwd" },
+  { "label": "Environment", "command": "env" },
+  { "label": "Node version", "command": "node --version" }
+]
