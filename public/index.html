@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080b15">
+    <title>Nova Terminal</title>
+    <link rel="stylesheet" href="/vendor/xterm.css">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell-page" aria-label="Nova Terminal web application">
+      <section class="hero-panel">
+        <div class="eyebrow">Node.js PTY backend</div>
+        <h1>Nova Terminal</h1>
+        <p>
+          A polished browser shell with native terminal behavior. We build the
+          experience ourselves, then use xterm.js for the hard terminal-emulation layer.
+        </p>
+        <div class="status-card" aria-live="polite">
+          <span class="pulse" id="statusPulse"></span>
+          <span id="connectionStatus">Connecting…</span>
+        </div>
+      </section>
+
+      <section class="terminal-card" aria-label="Interactive terminal">
+        <header class="terminal-toolbar">
+          <div class="window-controls" aria-hidden="true">
+            <span class="control close"></span>
+            <span class="control minimize"></span>
+            <span class="control maximize"></span>
+          </div>
+          <div class="terminal-title">
+            <span class="spark">✦</span>
+            <span>local shell</span>
+          </div>
+          <div class="toolbar-actions">
+            <button type="button" id="clearButton">Clear</button>
+            <button type="button" id="reconnectButton">Reconnect</button>
+          </div>
+        </header>
+        <div class="terminal-meta">
+          <span>Session</span>
+          <strong id="sessionId">booting</strong>
+          <span>Transport</span>
+          <strong>WebSocket</strong>
+        </div>
+        <div id="terminal" class="terminal-surface" role="application" aria-label="Terminal surface"></div>
+      </section>
+    </main>
+
+    <script src="/vendor/xterm.js"></script>
+    <script src="/vendor/addon-fit.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
