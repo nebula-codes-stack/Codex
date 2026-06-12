@@ -1,0 +1,71 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="cyan" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(108 86) rotate(43) scale(596 471)">
+      <stop stop-color="#62E6FF" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#62E6FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violet" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1037 100) rotate(137) scale(531 432)">
+      <stop stop-color="#A78BFA" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="green" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(655 808) rotate(-90) scale(323 531)">
+      <stop stop-color="#67F7B1" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#67F7B1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="162" y1="84" x2="1109" y2="705" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151C36" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#0B1020" stop-opacity="0.94"/>
+    </linearGradient>
+    <filter id="shadow" x="56" y="40" width="1168" height="700" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="34" stdDeviation="42" flood-color="#000000" flood-opacity="0.52"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="760" fill="#070913"/>
+  <rect width="1280" height="760" fill="url(#cyan)"/>
+  <rect width="1280" height="760" fill="url(#violet)"/>
+  <rect width="1280" height="760" fill="url(#green)"/>
+  <g opacity="0.2">
+    <path d="M0 76H1280M0 152H1280M0 228H1280M0 304H1280M0 380H1280M0 456H1280M0 532H1280M0 608H1280M0 684H1280" stroke="white"/>
+    <path d="M80 0V760M160 0V760M240 0V760M320 0V760M400 0V760M480 0V760M560 0V760M640 0V760M720 0V760M800 0V760M880 0V760M960 0V760M1040 0V760M1120 0V760M1200 0V760" stroke="white"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="72" y="76" width="352" height="608" rx="32" fill="#0D1222" fill-opacity="0.76" stroke="white" stroke-opacity="0.14"/>
+    <circle cx="394" cy="94" r="140" fill="#62E6FF" fill-opacity="0.16"/>
+    <circle cx="420" cy="108" r="100" fill="#A78BFA" fill-opacity="0.18"/>
+    <rect x="112" y="124" width="172" height="34" rx="17" fill="white" fill-opacity="0.06" stroke="#62E6FF" stroke-opacity="0.34"/>
+    <text x="129" y="146" fill="#62E6FF" font-family="Inter,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="1.8">NODE.JS PTY</text>
+    <text x="112" y="458" fill="#F4F7FF" font-family="Inter,Segoe UI,sans-serif" font-size="76" font-weight="800" letter-spacing="-6">Nova</text>
+    <text x="112" y="526" fill="#F4F7FF" font-family="Inter,Segoe UI,sans-serif" font-size="76" font-weight="800" letter-spacing="-6">Terminal</text>
+    <text x="112" y="570" fill="#9AA7C7" font-family="Inter,Segoe UI,sans-serif" font-size="18">Custom shell UI with real terminal</text>
+    <text x="112" y="598" fill="#9AA7C7" font-family="Inter,Segoe UI,sans-serif" font-size="18">behavior powered by xterm.js.</text>
+    <rect x="112" y="628" width="138" height="40" rx="20" fill="white" fill-opacity="0.07" stroke="white" stroke-opacity="0.14"/>
+    <circle cx="135" cy="648" r="6" fill="#67F7B1"/>
+    <text x="152" y="654" fill="#DFE7FF" font-family="Inter,Segoe UI,sans-serif" font-size="15">Connected</text>
+
+    <rect x="456" y="76" width="752" height="608" rx="24" fill="url(#panel)" stroke="white" stroke-opacity="0.14"/>
+    <rect x="456" y="76" width="752" height="70" rx="24" fill="white" fill-opacity="0.06"/>
+    <path d="M456 146H1208" stroke="white" stroke-opacity="0.13"/>
+    <circle cx="492" cy="111" r="8" fill="#FF5F57"/>
+    <circle cx="518" cy="111" r="8" fill="#FFBD2E"/>
+    <circle cx="544" cy="111" r="8" fill="#28C840"/>
+    <text x="797" y="118" text-anchor="middle" fill="#DCE5FF" font-family="Inter,Segoe UI,sans-serif" font-size="16" font-weight="700">✦ local shell</text>
+    <rect x="1061" y="94" width="58" height="34" rx="17" fill="white" fill-opacity="0.07" stroke="white" stroke-opacity="0.16"/>
+    <text x="1090" y="116" text-anchor="middle" fill="#F4F7FF" font-family="Inter,Segoe UI,sans-serif" font-size="13">Clear</text>
+    <rect x="1128" y="94" width="62" height="34" rx="17" fill="#62E6FF" fill-opacity="0.12" stroke="#62E6FF" stroke-opacity="0.38"/>
+    <text x="1159" y="116" text-anchor="middle" fill="#F4F7FF" font-family="Inter,Segoe UI,sans-serif" font-size="13">Reconnect</text>
+    <rect x="456" y="146" width="752" height="46" fill="#0D1222" fill-opacity="0.45"/>
+    <text x="488" y="174" fill="#9AA7C7" font-family="Inter,Segoe UI,sans-serif" font-size="14">Session</text>
+    <text x="552" y="174" fill="#F4F7FF" font-family="Inter,Segoe UI,sans-serif" font-size="14" font-weight="700">a13f9c2d</text>
+    <text x="646" y="174" fill="#9AA7C7" font-family="Inter,Segoe UI,sans-serif" font-size="14">Transport</text>
+    <text x="724" y="174" fill="#F4F7FF" font-family="Inter,Segoe UI,sans-serif" font-size="14" font-weight="700">WebSocket</text>
+    <rect x="488" y="224" width="688" height="412" rx="18" fill="#080B15"/>
+    <text x="526" y="274" fill="#67F7B1" font-family="Cascadia Code,Menlo,monospace" font-size="18">Connected to /bin/bash from 127.0.0.1</text>
+    <text x="526" y="318" fill="#62E6FF" font-family="Cascadia Code,Menlo,monospace" font-size="18">nova@local</text>
+    <text x="636" y="318" fill="#E8EEFF" font-family="Cascadia Code,Menlo,monospace" font-size="18">:</text>
+    <text x="650" y="318" fill="#A78BFA" font-family="Cascadia Code,Menlo,monospace" font-size="18">~/Codex</text>
+    <text x="732" y="318" fill="#E8EEFF" font-family="Cascadia Code,Menlo,monospace" font-size="18">$ npm run dev</text>
+    <text x="526" y="362" fill="#9AA7C7" font-family="Cascadia Code,Menlo,monospace" font-size="18">Web terminal listening at http://127.0.0.1:3000</text>
+    <text x="526" y="406" fill="#FBBF24" font-family="Cascadia Code,Menlo,monospace" font-size="18">Terminal sessions open in the project root.</text>
+    <rect x="526" y="441" width="10" height="25" fill="#62E6FF"/>
+  </g>
+</svg>

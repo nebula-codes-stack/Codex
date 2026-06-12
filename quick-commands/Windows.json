@@ -1,0 +1,7 @@
+[
+  { "label": "Directory", "command": "dir" },
+  { "label": "Windows version", "command": "ver" },
+  { "label": "IP config", "command": "ipconfig" },
+  { "label": "Node version", "command": "node --version && npm --version" },
+  { "label": "PowerShell", "command": "powershell -NoLogo" }
+]

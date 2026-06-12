@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings · Nova Terminal</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="center-page wide">
+      <section class="auth-card settings-card">
+        <nav class="app-nav"><a href="/">Terminal</a><a href="/debug">Debug</a><a href="/whats-new">What's new</a></nav>
+        <div class="eyebrow">Easy settings</div>
+        <h1>Settings</h1>
+        <p>Keep settings simple to avoid bugs. Server settings come from environment variables; UI preferences stay in this browser.</p>
+
+        <div class="settings-grid two-column">
+          <label class="toggle-row"><input type="checkbox" id="compactMode"> Compact UI</label>
+          <label class="toggle-row"><input type="checkbox" id="debugMode"> Show debug logs in the browser console</label>
+          <label class="field-row">Terminal font size <input type="number" id="fontSize" min="11" max="22" step="1"></label>
+          <label class="field-row">Accent color
+            <select id="accentColor">
+              <option value="cyan">Cyan</option>
+              <option value="purple">Purple</option>
+              <option value="green">Green</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="settings-actions">
+          <button type="button" id="saveSettings">Save browser settings</button>
+          <button type="button" id="resetSettings">Reset browser settings</button>
+        </div>
+
+        <h2>Detected quick commands</h2>
+        <p>These come from the OS-specific JSON files in <code>quick-commands/</code>.</p>
+        <pre class="debug-output" id="quickCommandsOutput">Loading…</pre>
+
+        <h2>Server runtime</h2>
+        <pre class="debug-output" id="settingsOutput">Loading…</pre>
+      </section>
+    </main>
+    <script src="/settings.js"></script>
+    <script src="/page.js"></script>
+  </body>
+</html>
